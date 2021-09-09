@@ -1,0 +1,57 @@
+﻿@using AkademisyenProfil.Models
+@model List<Akademisyenler>
+
+@{
+    ViewData["Title"] = "akademisyenler";
+    Layout = "~/Views/Shared/adminlayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- DATA TABLE -->
+        <h3 class="title-5 m-b-35"> <strong>AKADEMİSYENLER</strong></h3>
+    </div>
+
+    <div class="table-responsive table-responsive-data2">
+        <table class="table table-data2">
+            <thead>
+                <tr>
+                    <th><strong>AKADEMİSYEN NO</strong></th>
+                    <th><strong>FOTOĞRAF</strong></th>
+                    <th><strong>ÜNVAN </strong></th>
+                    <th><strong>İSİM </strong></th>
+                    <th><strong>EMAİL </strong></th>
+                    <th><strong>TELEFON </strong></th>
+                    <th><strong>BÖLÜM </strong></th>
+                    <th><strong>İŞLEM </strong></th>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr class="tr-shadow">
+                        <td>@x.akano</td>
+                        <td><img src="@x.akafoto" alt="Alternate Text" width="100px" height="90px" /></td>
+                        <td>@x.akaunvan</td>
+                        <td>@x.akaad</td>
+                        <td>@x.akaemail</td>
+                        <td>@x.akatel</td>
+                        <td>@x.Bolumler.bolumad</td>
+                        <td>
+                            <div class="table-data-feature">
+                                <a href="/Admin/AkaSil/@x.akano">
+                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                        <i class="zmdi zmdi-delete"></i>
+                                    </button>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- END DATA TABLE -->
+</div>
+
+
+

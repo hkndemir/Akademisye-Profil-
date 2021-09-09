@@ -1,0 +1,45 @@
+﻿@using AkademisyenProfil.Models
+@model List<Gorevler>
+@{
+    ViewData["Title"] = "gorevler";
+    Layout = "~/Views/Shared/adminlayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- DATA TABLE -->
+        <h3 class="title-5 m-b-35"> <strong>İDARİ GÖREVLER</strong></h3>
+    </div>
+    <div class="table-responsive table-responsive-data2">
+        <table class="table table-data2">
+            <thead>
+                <tr>
+                    <th><strong>GÖREV NO</strong></th>
+                    <th><strong>GÖREV BİLGİ</strong></th>
+                    <th><strong>AKADEMİSYEN ADI</strong></th>
+                    <th><strong>İŞLEM </strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                <tr class="tr-shadow">
+                    <td>@x.gorevno</td>
+                    <td>@x.gorevad</td>
+                    <td>@x.Akademisyenler.akaad</td>
+                    <td>
+                        <div class="table-data-feature">
+                            <a href="/Admin/GorevSil/@x.gorevno">
+                                <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                    <i class="zmdi zmdi-delete"></i>
+                                </button>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+}
+        </tbody>
+    </table>
+</div>
+</div>
+

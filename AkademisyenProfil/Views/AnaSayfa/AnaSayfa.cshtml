@@ -1,0 +1,52 @@
+﻿@using AkademisyenProfil.Models
+@model List<Fakulteler>
+@{
+    ViewData["Title"] = "AnaSayfa";
+    Layout = "~/Views/Shared/tapbarlayout.cshtml";
+}
+<!-- Burası Anasayfamız direkt olarak fakülteler Listeleniyor-->
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    #zoom {
+        padding: 25px;
+        transition: transform .2s;
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+
+        #zoom:hover {
+            -ms-transform: scale(1.5); /* IE 9 */
+            -webkit-transform: scale(1.5); /* Safari 3-8 */
+            transform: scale(1.5);
+        }
+</style>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+    <h1>FAKÜLTELER</h1><hr />
+
+    <div class="row justify-content-center">
+        @foreach (var x in Model)
+        {
+            <div class="col-xs-6 col-md-4">
+                <div class="card">
+                    <a href="/AnaSayfa/Bolumler/@x.fakulteno"><img class="card-img-top " src="@x.fakultelogo" alt="Card image cap" id="zoom" width="100px" height="90px"></a>
+                    <div class="card-body">
+                        <h4 class="card-title"> <strong>@x.fakultead</strong></h4>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+

@@ -1,0 +1,459 @@
+﻿@using AkademisyenProfil.Models
+@model List<Ogrenimbilgiler>
+@{
+    ViewData["Title"] = "Profil";
+    Layout = "~/Views/Shared/ProfiPageLayout.cshtml";
+}
+<!-- Burası Profil Kısmı burada seçtiğimiz akademisyenin id sini alarak buraya ilgili bölümleri listeleyip alıyoruz ViewBag kullanıldı geneler olarak   -->
+<div id="page-wraper">
+    <!-- Sidebar Menu -->
+    <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+            <i class="fa fa-times" id="menu-close"></i>
+            <div class="container">
+                <div class="image">
+                    @foreach (var x in ViewBag.aka)
+                    {
+                        <a href="#"><img src="@x.akafoto" alt="" /></a>
+                    }
+
+                </div>
+                <div class="author-content">
+
+                    @foreach (var x in ViewBag.aka)
+                    {
+                        <h4>@x.akaad</h4>
+                        <span>@x.akaunvan</span>
+                    }
+
+                </div>
+                <nav class="main-nav" role="navigation">
+                    <ul class="main-menu">
+                        <li><a href="#section1">ÖĞRENİM BİLGİLERİ</a></li>
+                        <li><a href="#section2">MAKALELER</a></li>
+                        <li><a href="#section3">PROJELER</a></li>
+                        <li><a href="#section4">BİLDİRİLER</a></li>
+                        <li><a href="#section5">DERSLER</a></li>
+                        <li><a href="#section6">GÖREVLER</a></li>
+                        <li><a href="#section7">HAKEMLİKLER</a></li>
+                        <li><a href="#section8">KİTAPLAR</a></li>
+                        <li><a href="#section9">ÖDÜLLER</a></li>
+                        <li><a href="#section10">SERTİFİKALAR</a></li>
+                        <li><a href="#section11">İLETİŞİM</a></li>
+                    </ul>
+                </nav>
+                <div class="social-network">
+                    <ul class="soial-icons">
+
+                        <li>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-rss"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="copyright-text">
+                    <p>ERZURUM TEKNİK ÜNİVERSİTESİ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section about-me" data-section="section1">
+        <div class="container">
+            <div class="section-heading">
+                <h2>HAKKINDA</h2>
+                <div class="line-dec"></div>
+
+                @foreach (var x in ViewBag.aka)
+                {
+                    <ul>
+                        <li><h3>Mail: @x.akaemail</h3></li>
+                        <br />
+                        <li><h3>Tel:  @x.akatel</h3></li>
+                    </ul>
+                }
+
+
+            </div>
+
+            <div class="right-image-post">
+
+                <div class="text-center">
+                    <h1>ÖĞRENİM BİLGİLERİ</h1>
+                    <div class="line-dec"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="service-item">
+                                <div class="first-service-icon service-icon"></div>
+                                <h4>ARAŞTIRMA ALANLARI</h4>
+                                <p>
+                                    @foreach (var x in Model)
+                                    {
+                                        @x.arastirmaalan
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="service-item">
+                                <div class="first-service-icon service-icon"></div>
+                                <h4>DOKTORA</h4>
+                                <p>
+                                    @foreach (var x in Model)
+                                    {
+                                        @x.doktora
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="service-item">
+                                <div class="first-service-icon service-icon"></div>
+                                <h4>YÜKSEK LİSANS</h4>
+                                <p>
+                                    @foreach (var x in Model)
+                                    {
+                                        @x.yukseklisans
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="service-item">
+                                <div class="first-service-icon service-icon"></div>
+                                <h4>LİSANS</h4>
+                                <p>
+                                    @foreach (var x in Model)
+                                    {
+                                        @x.lisans
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+    <section class="section my-services" data-section="section2">
+        <div class="container">
+            <div class="section-heading">
+                <h2>MAKALELER</h2>
+                <div class="line-dec"></div>
+                <span>ŞUAN AKADEMİSYENİMİZİN MAKALELERİNİ İNCELEMEKTESİNİZ.</span>
+            </div>
+            <div class="row">
+                @foreach (var x in ViewBag.mkl)
+                {
+                    <div class="col-md-12">
+                        <div class="service-item">
+                            <div class="first-service-icon service-icon"></div>
+                            <h4>MAKALE ADI</h4>
+                            <p> @x.makalead</p>
+                        </div>
+                    </div>}
+
+            </div>
+
+    </section>
+
+    <section class="section my-work" data-section="section3">
+        <div class="container">
+            <div class="section-heading">
+                <h2>PROJELER</h2>
+                <div class="line-dec"></div>
+                <span>ŞUAN AKADEMİSYENİMİZİN PROJELERİNİ İNCELEMEKTESİNİZ.</span>
+            </div>
+            <div class="row">
+                @foreach (var x in ViewBag.prj)
+                {
+                    <div class="col-md-12">
+                        <div class="service-item">
+                            <div class="first-service-icon service-icon"></div>
+                            <h4>PROJE ADI</h4>
+                            <p>
+                                @x.Projead
+                            </p>
+                        </div>
+                    </div>}
+            </div>
+    </section>
+
+
+    <section class="section my-work" data-section="section4">
+        <div class="container">
+            <div class="section-heading">
+                <h2>BİLDİRİLER</h2>
+                <div class="line-dec"></div>
+                <span>ŞUAN AKADEMİSYENİMİZİN BİLDİRİLERİNİ İNCELEMEKTESİNİZ.</span>
+            </div>
+            <div class="row">
+
+                @foreach (var x in ViewBag.blr)
+                {
+                    @if (@x.ulusal != null)
+                    {
+                        <div class="col-md-12">
+                            <div class="service-item">
+                                <div class="first-service-icon service-icon"></div>
+                                <h4>ULUSAL</h4>
+                                <p>
+                                    @x.ulusal
+                                </p>
+                            </div>
+                        </div>}
+                }
+                @foreach (var x in ViewBag.blr)
+                {
+                    @if (@x.uluslararası != null)
+                    {
+                        <div class="col-md-12">
+                            <div class="service-item">
+                                <div class="first-service-icon service-icon"></div>
+                                <h4>ULUSLARARASI</h4>
+                                <p>
+                                    @x.uluslararası
+                                </p>
+                            </div>
+                        </div>}
+                }
+    </section>
+
+    <section class="section my-lesson" data-section="section5">
+        <div class="container">
+            <div class="section-heading">
+                <h2>DERSLER</h2>
+                <div class="line-dec"></div>
+                <span>ŞUAN AKADEMİSYENİMİZİN VERDİĞİ DERSLERİ İNCELEMEKTESİNİZ.</span>
+            </div>
+            <div class="row">
+
+                @foreach (var x in ViewBag.drs)
+                {
+                    <div class="col-md-12">
+                        <div class="service-item">
+                            <div class="first-service-icon service-icon"></div>
+                            <h4>DERS ADI</h4>
+                            <p>
+                                @x.dersad
+
+                            </p>
+
+                        </div>
+                    </div>}
+
+            </div>
+    </section>
+
+    <section class="section my-task" data-section="section6">
+        <div class="container">
+            <div class="section-heading">
+                <h2>GÖREVLER</h2>
+                <div class="line-dec"></div>
+                <span>ŞUAN AKADEMİSYENİMİZİN YAPTIĞI & ÜSTLENDİĞİ GÖREVLERİ İNCELEMEKTESİNİZ.</span>
+            </div>
+            <div class="row">
+                @foreach (var x in ViewBag.grv)
+                {
+
+
+                    <div class="col-md-12">
+                        <div class="service-item">
+                            <div class="first-service-icon service-icon"></div>
+                            <h4>GÖREV ADI</h4>
+                            <p>
+
+                                @x.gorevad
+
+                            </p>
+
+                        </div>
+                    </div>}
+
+            </div>
+    </section>
+
+    <section class="section my-news" data-section="section7">
+        <div class="container">
+            <div class="section-heading">
+                <h2>HAKEMLİKLER</h2>
+                <div class="line-dec"></div>
+                <span>ŞUAN AKADEMİSYENİMİZİN YAPTIĞI HAKEMLİKLERİ İNCELEMEKTESİNİZ.</span>
+            </div>
+            <div class="row">
+                @foreach (var x in ViewBag.hkm)
+                {
+
+
+                    <div class="col-md-12">
+                        <div class="service-item">
+                            <div class="first-service-icon service-icon"></div>
+                            <h4>HAKEMLİK ADI</h4>
+                            <p>
+
+                                @x.hakemad
+                            </p>
+
+                        </div>
+                    </div>}
+
+            </div>
+    </section>
+
+    <section class="section my-book" data-section="section8">
+        <div class="container">
+            <div class="section-heading">
+                <h2>KİTAPLAR</h2>
+                <div class="line-dec"></div>
+                <span>ŞUAN AKADEMİSYENİMİZİN YAZDIĞI KİTAPLARINI İNCELEMEKTESİNİZ.</span>
+            </div>
+            <div class="row">
+                @foreach (var x in ViewBag.ktb)
+                {
+
+
+                    <div class="col-md-12">
+                        <div class="service-item">
+                            <div class="first-service-icon service-icon"></div>
+                            <h4>KİTAP ADI</h4>
+                            <p>
+
+                                @x.kitapad
+                            </p>
+
+                        </div>
+                    </div>}
+
+            </div>
+    </section>
+
+
+    <section class="section my-ödül" data-section="section9">
+        <div class="container">
+            <div class="section-heading">
+                <h2>ÖDÜLLER</h2>
+                <div class="line-dec"></div>
+                <span>ŞUAN AKADEMİSYENİMİZİN ALDIĞI ÖDÜLLERİ İNCELEMEKTESİNİZ.</span>
+            </div>
+            <div class="row">
+                @foreach (var x in ViewBag.odl)
+                {
+                    <div class="col-md-12">
+                        <div class="service-item">
+                            <div class="first-service-icon service-icon"></div>
+                            <h4>ÖDÜL ADI</h4>
+                            <p>
+                                @x.odulad
+
+                            </p>
+
+                        </div>
+                    </div>}
+
+            </div>
+    </section>
+
+
+    <section class="section my-sertifika" data-section="section10">
+        <div class="container">
+            <div class="section-heading">
+                <h2>SERTİFİKALAR</h2>
+                <div class="line-dec"></div>
+                <span>ŞUAN AKADEMİSYENİMİZİN ALDIĞI SERTİFİKALARI İNCELEMEKTESİNİZ.</span>
+            </div>
+            <div class="row">
+                @foreach (var x in ViewBag.srt)
+                {
+
+
+                    <div class="col-md-12">
+                        <div class="service-item">
+                            <div class="first-service-icon service-icon"></div>
+                            <h4>SERTİFİKA ADI</h4>
+                            <p>
+                                @x.sertifikaad
+
+                            </p>
+
+                        </div>
+                    </div>}
+
+            </div>
+    </section>
+
+    <section class="section contact-me" data-section="section11">
+        <div class="container">
+            <div class="section-heading">
+                <h2>İLETİŞİM</h2>
+                <div class="line-dec"></div>
+                <span>BİZE İLETMEK İSTEDİĞİNİZ HER ŞEYİ MAİL İLE ULAŞTIRABİLİRSİNİZ.</span>
+            </div>
+            <div class="row">
+                <div class="right-content">
+                    <div class="container">
+                        <form id="contact" action="" method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <input name="name"
+                                               type="text"
+                                               class="form-control"
+                                               id="name"
+                                               placeholder="Adınız..."
+                                               required="" />
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <input name="email"
+                                               type="text"
+                                               class="form-control"
+                                               id="email"
+                                               placeholder="Mail Adresiniz..."
+                                               required="" />
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-12">
+                                    <fieldset>
+                                        <input name="subject"
+                                               type="text"
+                                               class="form-control"
+                                               id="subject"
+                                               placeholder="Konu..."
+                                               required="" />
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-12">
+                                    <fieldset>
+                                        <textarea name="message"
+                                                  rows="6"
+                                                  class="form-control"
+                                                  id="message"
+                                                  placeholder="Mesajınız..."
+                                                  required=""></textarea>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-12">
+                                    <fieldset>
+                                        <button type="submit" id="form-submit" class="button">
+                                            MAİLİ GÖNDER
+                                        </button>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

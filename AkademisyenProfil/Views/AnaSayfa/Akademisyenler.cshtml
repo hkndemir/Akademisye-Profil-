@@ -1,0 +1,57 @@
+﻿@using AkademisyenProfil.Models
+@model List<Akademisyenler>
+
+@{
+    ViewData["Title"] = "Akademisyenler";
+    Layout = "~/Views/Shared/tapbarlayout.cshtml";
+}
+<!-- Burada seçilen bölüme ait olan akademisyenler listeleniyor --> 
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    #zoom {
+        padding: 20px;
+        transition: transform .2s;
+        width: 180px;
+        height: 180px;
+        margin: 0 auto;
+    }
+
+        #zoom:hover {
+            -ms-transform: scale(1.5);
+            -webkit-transform: scale(1.5); 
+            transform: scale(1.5);
+        }
+</style>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>@ViewBag.blm</h2>
+<hr />
+<h1>AKADEMİSYENLER</h1>
+<hr />
+<div class="container">
+
+    <div class="row justify-content-center">
+        @foreach (var x in Model)
+        {
+            <div class="col-xs-6 col-md-4">
+                <div class="card ">
+                    <a href="/AnaSayfa/Profil/@x.akano"><img class="card-img-top" id="zoom" src="@x.akafoto" alt="Card image cap"  width="100px" height="90px"></a>
+                    <div class="card-body ">
+                        <h2 class="card-title "><strong> @x.akaunvan</strong></h2>
+                        <h3 class="card-text"><strong>@x.akaad</strong> </h3>
+                        <h4 class="card-text"><strong>Email: @x.akaemail</strong> </h4>
+                        <h4 class="card-text"><strong>Tel: @x.akatel</strong> </h4>
+                    </div>
+                </div>
+            </div>}
+
+    </div>
+</div>

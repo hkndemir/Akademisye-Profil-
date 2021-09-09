@@ -1,0 +1,30 @@
+﻿@model AkademisyenProfil.Models.Makaleler
+@{
+    ViewData["Title"] = "makaleekle";
+    Layout = "~/Views/Shared/adminlayout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>MAKALE EKLE</strong>
+            </div>
+            <div class="card-body card-block">
+                <form asp-controller="Admin" asp-action="makaleekle" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <label><strong>YENİ MAKALE</strong></label>
+                    <input type="text" class="form-control" name="makalead" />
+                    <br />
+                    <label><strong>AKADEMİSYEN</strong></label>
+                    @Html.DropDownListFor(m => m.Akademisyenler.akano, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+                    <br />
+                    <button class="btn btn-primary btn-sm">
+                        <i class="fa fa-dot-circle-o"></i> Makale Ekle
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

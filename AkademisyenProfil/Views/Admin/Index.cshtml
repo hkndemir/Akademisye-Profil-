@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/adminlayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="overview-wrap">
+            <h1>ANA SAYFA</h1>
+        </div>
+    </div>
+</div>
+<div class="row m-t-25">
+    <div class="col-sm-6 col-lg-4">
+        <div class="overview-item overview-item--c1">
+            <div class="overview__inner">
+                <div class="overview-box clearfix">
+                    <div class="icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="text">
+                        <h2>@ViewBag.fak</h2>
+                        <h3 style="color:azure">FAKÜLTE SAYISI</h3>
+                    </div>
+                </div>
+                <div class="overview-chart">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-lg-4">
+        <div class="overview-item overview-item--c2">
+            <div class="overview__inner">
+                <div class="overview-box clearfix">
+                    <div class="icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="text">
+                        <h2>@ViewBag.bol</h2>
+                        <h3 style="color:azure">BÖLÜM SAYISI</h3>
+                    </div>
+                </div>
+                <div class="overview-chart">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-lg-4">
+        <div class="overview-item overview-item--c3">
+            <div class="overview__inner">
+                <div class="overview-box clearfix">
+                    <div class="icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="text">
+                        <h2>@ViewBag.aka</h2>
+                        <h3 style="color:azure">AKADEMİSYEN SAYISI</h3>
+                    </div>
+                </div>
+                <div class="overview-chart">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

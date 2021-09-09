@@ -1,0 +1,53 @@
+﻿@using AkademisyenProfil.Models
+@model List<Bolumler>
+
+@{
+    ViewData["Title"] = "bolumler";
+    Layout = "~/Views/Shared/adminlayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- DATA TABLE -->
+        <h3 class="title-5 m-b-35"> <strong>BÖLÜMLER</strong></h3>
+    </div>
+    <div class="table-responsive table-responsive-data2">
+        <table class="table table-data2">
+            <thead>
+                <tr>
+                    <th><strong>BÖLÜM NO</strong></th>
+                    <th><strong>BÖLÜM LOGO</strong></th>
+                    <th><strong>BÖLÜM AD </strong></th>
+                    <th><strong>FAKÜLTE </strong></th>
+                    <th><strong>İŞLEM</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+                @foreach (var x in Model)
+                {
+                <tr class="tr-shadow">
+                    <td>@x.bolumno</td>
+                    <td><img src="@x.bollogo" alt="Alternate Text" width="100px" height="90px" /></td>
+                    <td>@x.bolumad</td>
+                    <td>@x.Fakulteler.fakultead</td>
+                    <td>
+                        <div class="table-data-feature">
+                            <a href="/Admin/BolumSil/@x.bolumno">
+                                <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                    <i class="zmdi zmdi-delete"></i>
+                                </button>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <!-- END DATA TABLE -->
+</div>
+
+

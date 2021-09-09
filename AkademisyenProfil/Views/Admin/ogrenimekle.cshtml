@@ -1,0 +1,37 @@
+﻿@model AkademisyenProfil.Models.Ogrenimbilgiler
+@{
+    ViewData["Title"] = "ogrenimekle";
+    Layout = "~/Views/Shared/adminlayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>ÖĞRENİM BİLGİLERİ EKLE</strong>
+            </div>
+            <div class="card-body card-block">
+                <form asp-controller="Admin" asp-action="ogrenimekle" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <label><strong>ARAŞTIRMA ALANLARI </strong></label>
+                    <input type="text" class="form-control" name="arastirmaalan" />
+                    <br />
+                    <label><strong>DOKTORA</strong></label>
+                    <input type="text" class="form-control" name="doktora" />
+                    <br />
+                    <label><strong>YÜKSEK LİSANS</strong></label>
+                    <input type="text" class="form-control" name="yukseklisans" />
+                    <br />
+                    <label><strong>LİSANS</strong></label>
+                    <input type="text" class="form-control" name="lisans" />
+                    <br />
+                    <label><strong>AKADEMİSYEN</strong></label>
+                    @Html.DropDownListFor(m => m.Akademisyenler.akano, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+                    <br />
+                    <button class="btn btn-primary btn-sm">
+                        <i class="fa fa-dot-circle-o"></i> Öğrenim Bilgisi Ekle
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

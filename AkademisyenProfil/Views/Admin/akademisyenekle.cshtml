@@ -1,0 +1,40 @@
+﻿@model AkademisyenProfil.Models.Akademisyenler
+@{
+    ViewData["Title"] = "akademisyenekle";
+    Layout = "~/Views/Shared/adminlayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>AKADEMİSYEN EKLE</strong>
+            </div>
+            <div class="card-body card-block">
+                <form asp-controller="Admin" asp-action="akademisyenekle" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <label><strong>ÜNVAN</strong></label>
+                    <input type="text" class="form-control" name="akaunvan" />
+                    <br />
+                    <label><strong>İSİM</strong></label>
+                    <input type="text" class="form-control" name="akaad" />
+                    <br />
+                    <label><strong>EMAİL</strong></label>
+                    <input type="text" class="form-control" name="akaemail" /><br />
+                    <label><strong>TELEFON</strong></label>
+                    <input type="text" class="form-control" name="akatel" /><br />
+                    <label><strong>BÖLÜM</strong></label>
+                    @Html.DropDownListFor(m => m.Bolumler.bolumno, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+                    <br />
+                    <label><strong>FOTOĞRAF</strong></label><br />
+                    <input type="file" name="akafoto" class="form-control" />
+                    <br />
+                    <button class="btn btn-primary btn-sm">
+                        <i class="fa fa-dot-circle-o"></i>Akademisyen Ekle
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

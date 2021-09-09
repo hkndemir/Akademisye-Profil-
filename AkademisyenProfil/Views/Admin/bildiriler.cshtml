@@ -1,0 +1,47 @@
+﻿@using AkademisyenProfil.Models
+@model List<Bildiriler>
+@{
+    ViewData["Title"] = "bildiriler";
+    Layout = "~/Views/Shared/adminlayout.cshtml";
+}
+
+
+<div class="col-md-6">
+    <!-- DATA TABLE -->
+    <h3 class="title-5 m-b-35"> <strong>BİLDİRİLER</strong></h3>
+</div>
+<div class="table-responsive table-responsive-data2">
+    <table class="table table-data2">
+        <thead>
+            <tr>
+                <th><strong>BİLDİRİ  NO</strong></th>
+                <th><strong>ULUSAL BİİLDİRİ </strong></th>
+                <th><strong>ULUSLARARASI BİİLDİRİ </strong></th>
+                <th><strong>AKADEMİSYEN ADI</strong></th>
+                <th><strong>İŞLEM </strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+            <tr class="tr-shadow">
+                <td>@x.bildirino</td>
+                <td>@x.ulusal</td>
+                <td>@x.uluslararası</td>
+                <td>@x.Akademisyenler.akaad</td>
+                <td>
+                    <div class="table-data-feature">
+                        <a href="/Admin/BildiriSil/@x.bildirino">
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                <i class="zmdi zmdi-delete"></i>
+                            </button>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+}
+        </tbody>
+    </table>
+</div>
+</div>
+
